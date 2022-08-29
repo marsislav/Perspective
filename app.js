@@ -28,6 +28,17 @@ Vue.createApp ({
             this.rotateY=0
             this.rotateZ=0
 
+        },
+        copy () {
+            const el=document.createElement('textarea');
+            el.style.position='absolute';
+            el.style.left='-99999px';
+            el.setAttribute('readonly', '');
+            el.value=`transform:${this.box.transform}`;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
         }
      }
 
